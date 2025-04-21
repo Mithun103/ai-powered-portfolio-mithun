@@ -201,7 +201,7 @@ const Experience = () => {
     {
       role: "AIML Intern",
       company: "Winvinaya Infosystem",
-      duration: "2023",
+      duration: "2024",
       description: "Developed machine learning solutions for business analytics and automated data processing systems.",
       type: "work",
     },
@@ -210,30 +210,9 @@ const Experience = () => {
   const hackathonExperiences = [
     {
       role: "Participant",
-      company: "IIT Shaastra's AIML Challenge",
-      duration: "2022",
+      company: "IIT Shaastra's AIML Challenge 1 and 2",
+      duration: "2023 and 2024",
       description: "Competed in AI/ML hackathon focused on innovative solutions for real-world problems.",
-      type: "event",
-    },
-    {
-      role: "Participant",
-      company: "IBM Z Datathon",
-      duration: "2022",
-      description: "Worked on large-scale data analysis and machine learning models using IBM's technology stack.",
-      type: "event",
-    },
-    {
-      role: "Participant",
-      company: "Intel oneAPI Hackathon",
-      duration: "2023",
-      description: "Built optimized AI solutions using Intel's oneAPI toolkit.",
-      type: "event",
-    },
-    {
-      role: "Participant",
-      company: "Industrial AI Hackathon - IIT Madras",
-      duration: "2023",
-      description: "Developed innovative AI solutions for industrial applications.",
       type: "event",
     },
     {
@@ -242,7 +221,29 @@ const Experience = () => {
       duration: "2022",
       description: "Participated in data science competition focused on real-world problem-solving.",
       type: "event",
-    }
+    },
+    {
+      role: "Participant",
+      company: "Intel oneAPI Hackathon",
+      duration: "2024",
+      description: "Built optimized AI solutions using Intel's oneAPI toolkit.",
+      type: "event",
+    },
+    {
+      role: "Participant",
+      company: "IBM Z Datathon",
+      duration: "2024",
+      description: "Worked on large-scale data analysis and machine learning models using IBM's technology stack.",
+      type: "event",
+    },
+    {
+      role: "Participant",
+      company: "Industrial AI Hackathon - IIT Madras",
+      duration: "2025",
+      description: "Developed innovative AI solutions for industrial applications.",
+      type: "event",
+    },
+  
   ];
 
   const certificates = [
