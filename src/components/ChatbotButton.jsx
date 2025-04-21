@@ -65,7 +65,7 @@ const ChatbotButton = () => {
           <div className="flex justify-between items-center mb-2 border-b border-white/10 pb-2">
             <div className="flex items-center gap-2">
               <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-portfolio-purple to-portfolio-blue">
-                MithunBot
+                Mithun's Ai
               </h3>
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
             </div>
