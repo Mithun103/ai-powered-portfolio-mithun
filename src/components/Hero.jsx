@@ -29,7 +29,7 @@ const Hero = () => {
               <AnimatedText 
                 texts={[
                   "Full Stack Developer",
-                  "AI/ML Engineer",
+                  "AI/ML Enthusiast",
                   "Tech Leader"
                 ]} 
                 className="inline-block"
@@ -62,9 +62,9 @@ const Hero = () => {
       </div>
       
       {/* Floating Tech Logos */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none z-20">
         {/* Spring Boot */}
-        <div className="absolute top-[10%] left-[5%] w-12 h-12 text-green-500 floating float-7">
+        <div className="absolute top-[15%] left-[2%] w-8 h-8 md:w-12 md:h-12 text-green-500 floating float-7">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
             <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
@@ -72,7 +72,7 @@ const Hero = () => {
         </div>
 
         {/* React */}
-        <div className="absolute top-[15%] left-[10%] w-12 h-12 text-blue-400 floating float-1">
+        <div className="absolute top-[30%] left-[5%] w-8 h-8 md:w-12 md:h-12 text-blue-400 floating float-1">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
             <path d="M12 13.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
@@ -80,42 +80,42 @@ const Hero = () => {
         </div>
         
         {/* Python */}
-        <div className="absolute top-[15%] right-[10%] w-12 h-12 text-yellow-400 floating float-2">
+        <div className="absolute top-[15%] right-[2%] w-8 h-8 md:w-12 md:h-12 text-yellow-400 floating float-2">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
             <path d="M12 2a8.5 8.5 0 0 1 4.11 1.08c1.34.74 2.06 1.75 2.06 2.78v6.12c0 1.03-.72 2.04-2.06 2.78A8.5 8.5 0 0 1 12 16a8.5 8.5 0 0 1-4.11-1.08C6.55 14.18 5.83 13.17 5.83 12.14V5.86c0-1.03.72-2.04 2.06-2.78A8.5 8.5 0 0 1 12 2zm0 12c3.28 0 5.94-1.27 5.94-2.83V8.83C16.6 9.97 14.18 10.83 12 10.83S7.4 9.97 6.06 8.83v2.34c0 1.56 2.66 2.83 5.94 2.83z"/>
           </svg>
         </div>
 
         {/* TensorFlow */}
-        <div className="absolute top-[25%] left-[20%] w-12 h-12 text-orange-500 floating float-8">
+        <div className="absolute top-[45%] left-[8%] w-8 h-8 md:w-12 md:h-12 text-orange-500 floating float-8">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
             <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm-1 15.68L5 14.5v-5l6 3v5.18zm8-3.18l-6 3V12.5l6-3v4.18z"/>
           </svg>
         </div>
         
         {/* LangChain */}
-        <div className="absolute top-[35%] left-[15%] w-12 h-12 text-purple-500 floating float-3">
+        <div className="absolute top-[60%] left-[3%] w-8 h-8 md:w-12 md:h-12 text-purple-500 floating float-3">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93z"/>
           </svg>
         </div>
 
         {/* MongoDB */}
-        <div className="absolute top-[35%] right-[15%] w-12 h-12 text-green-500 floating float-4">
+        <div className="absolute top-[45%] right-[8%] w-8 h-8 md:w-12 md:h-12 text-green-500 floating float-4">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93z"/>
           </svg>
         </div>
 
         {/* PyTorch */}
-        <div className="absolute top-[45%] left-[10%] w-12 h-12 text-red-500 floating float-9">
+        <div className="absolute top-[75%] left-[5%] w-8 h-8 md:w-12 md:h-12 text-red-500 floating float-9">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
             <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm-1 15.68L5 14.5v-5l6 3v5.18zm8-3.18l-6 3V12.5l6-3v4.18z"/>
           </svg>
         </div>
 
         {/* JavaScript */}
-        <div className="absolute top-[45%] right-[20%] w-12 h-12 text-yellow-500 floating float-10">
+        <div className="absolute top-[60%] right-[3%] w-8 h-8 md:w-12 md:h-12 text-yellow-500 floating float-10">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
             <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
@@ -123,14 +123,14 @@ const Hero = () => {
         </div>
 
         {/* FastAPI */}
-        <div className="absolute top-[55%] right-[10%] w-12 h-12 text-blue-400 floating float-6">
+        <div className="absolute top-[75%] right-[5%] w-8 h-8 md:w-12 md:h-12 text-blue-400 floating float-6">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
           </svg>
         </div>
       </div>
       
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce z-30">
         <ArrowDown className="text-gray-400 h-6 w-6" />
       </div>
     </section>
