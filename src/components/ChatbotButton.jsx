@@ -18,6 +18,15 @@ const ChatbotButton = () => {
     }));
   };
 
+  const formatMessage = (text) => {
+    return text.split(/(\*\*.*?\*\*)/g).map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <span key={index} className="font-bold">{part.slice(2, -2)}</span>;
+      }
+      return part;
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -78,7 +87,7 @@ const ChatbotButton = () => {
                     : 'mr-auto bg-white/10 text-gray-300 rounded-bl-none'
                 } transition-all duration-300 animate-fade-in`}
               >
-                {msg.text}
+                {formatMessage(msg.text)}
               </div>
             ))}
             {isLoading && (
