@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 270 100% 70%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 194 95% 43%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.75rem;
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 270 100% 70%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 270 100% 70%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 270 100% 70%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 194 95% 43%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 4.9% 83.9%;
+  }
+
+  .ai-mode {
+    --primary: 142 76% 36%;
+    --accent: 142 76% 36%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-xl;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold font-heading mb-8 text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 py-20;
+  }
+
+  .button-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-primary to-accent text-white font-medium rounded-lg hover:opacity-90 transition-all;
+  }
+  
+  .skill-logo {
+    @apply w-16 h-16 p-3 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-lg border border-white/10 hover:scale-110 transition-transform duration-300;
+  }
+  
+  .project-card {
+    @apply glass-card p-6 hover:scale-[1.02] transition-all duration-300;
+  }
+
+  .tech-card {
+    @apply relative overflow-hidden group;
+  }
+
+  .tech-card-content {
+    @apply absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+  }
+
+  .ai-glow {
+    @apply relative before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/20 before:to-accent/20 before:blur-xl before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-300;
+  }
+}
+
+.particles-container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  mix-blend-mode: screen;
+}
+
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end);
+  border-right: 2px solid;
+}
+
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  0% { transform: translate(0, 0px); }
+  50% { transform: translate(0, 15px); }
+  100% { transform: translate(0, 0px); }
+}
+
+/* Different timings for floating logos */
+.float-1 { animation-duration: 4s; }
+.float-2 { animation-duration: 5s; }
+.float-3 { animation-duration: 6s; }
+.float-4 { animation-duration: 3.5s; }
+.float-5 { animation-duration: 4.5s; }
+.float-6 { animation-duration: 5.5s; }
+.float-7 { animation-duration: 4.2s; }
+.float-8 { animation-duration: 5.8s; }
+.float-9 { animation-duration: 4.7s; }
+.float-10 { animation-duration: 5.3s; }
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+/* AI Mode specific animations */
+.ai-mode .floating {
+  animation-name: ai-floating;
+}
+
+@keyframes ai-floating {
+  0% { transform: translate(0, 0px) rotate(0deg); }
+  50% { transform: translate(0, 15px) rotate(5deg); }
+  100% { transform: translate(0, 0px) rotate(0deg); }
+}
+
+.ai-mode .tech-card {
+  @apply hover:scale-105 transition-transform duration-300;
+}
+
+.ai-mode .tech-card-content {
+  @apply bg-gradient-to-br from-primary/30 to-accent/30;
+}
+
+/* Tech icon hover effects */
+.floating:hover {
+  @apply scale-110 transition-transform duration-300;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.ai-mode .floating:hover {
+  @apply scale-110 transition-transform duration-300;
+  filter: drop-shadow(0 0 12px currentColor);
+}
