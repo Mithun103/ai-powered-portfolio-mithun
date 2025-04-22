@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageSquareText, Sparkles } from 'lucide-react';
+import { MessageSquareText, Sparkles, Mail, Phone } from 'lucide-react';
 import axios from 'axios';
 
 const ChatbotButton = () => {
@@ -115,10 +115,27 @@ const ChatbotButton = () => {
             />
             <button
               type="submit"
-              className="bg-gradient-to-br from-portfolio-purple to-portfolio-blue hover:opacity-90 text-white px-4 py-2.5 rounded-lg transition-all duration-300 disabled:opacity-50"
+              className="bg-gradient-to-br from-portfolio-purple to-portfolio-blue hover:opacity-90 text-white p-2.5 rounded-lg transition-all duration-300 disabled:opacity-50 active:scale-95 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-portfolio-purple"
               disabled={isLoading || !input.trim()}
             >
-              Send
+              {isLoading ? (
+                <div className="w-6 h-6 animate-spin">
+                  <svg className="w-full h-full" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                </div>
+              ) : (
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  className="w-6 h-6 transform rotate-45 transition-transform group-hover:translate-x-1"
+                >
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              )}
             </button>
           </form>
         </div>
