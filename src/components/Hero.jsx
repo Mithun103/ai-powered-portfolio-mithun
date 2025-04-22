@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download } from "lucide-react";
 import AnimatedText from "./AnimatedText";
@@ -13,7 +13,67 @@ import JavaScriptIcon from "../skilllogos/JavaScript.svg";
 import JavaIcon from "../skilllogos/Java.svg";
 import MySQLIcon from "../skilllogos/MySQL.svg";
 
+const CurvyQuote = ({ className, isClosing = false }) => (
+  <svg 
+    viewBox="0 0 100 100" 
+    className={className} 
+    style={{ transform: isClosing ? 'rotate(180deg)' : 'none' }}
+  >
+    <path
+      d="M25,40 Q10,40 10,55 Q10,70 25,70 Q35,70 35,60 Q35,53 30,50 Q35,47 35,40 Q35,30 25,30 Q20,30 20,35"
+      fill="none"
+      stroke="url(#gradient)"
+      strokeWidth="4"
+      strokeLinecap="round"
+      className="animate-draw"
+    />
+    <path
+      d="M55,40 Q40,40 40,55 Q40,70 55,70 Q65,70 65,60 Q65,53 60,50 Q65,47 65,40 Q65,30 55,30 Q50,30 50,35"
+      fill="none"
+      stroke="url(#gradient)"
+      strokeWidth="4"
+      strokeLinecap="round"
+      className="animate-draw"
+    />
+    <defs>
+      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="rgb(147, 51, 234)" stopOpacity="0.5" /> {/* portfolio-purple */}
+        <stop offset="100%" stopColor="rgb(59, 130, 246)" stopOpacity="0.5" /> {/* portfolio-blue */}
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
 const Hero = () => {
+  const [currentQuote, setCurrentQuote] = useState(0);
+  
+  const quotes = [
+    {
+      text: "Crafting tomorrow's solutions with today's code",
+      author: "Innovation in every commit"
+    },
+    {
+      text: "Where AI meets imagination, possibilities become reality",
+      author: "Future forward"
+    },
+    {
+      text: "Transforming complex challenges into elegant solutions",
+      author: "Code with purpose"
+    },
+    {
+      text: "Building bridges between human creativity and artificial intelligence",
+      author: "Tech fusion"
+    }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuote((prev) => (prev + 1) % quotes.length);
+    }, 5000); // Change quote every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handleScrollToAbout = () => {
     document.getElementById("about").scrollIntoView({ behavior: "smooth" });
   };
@@ -44,6 +104,48 @@ const Hero = () => {
                 ]} 
                 className="inline-block"
               />
+            </div>
+
+            {/* Enhanced Quote Section with Curvy Quotes */}
+            <div className="relative mt-8 max-w-3xl mx-auto group">
+              <div className="glass-card bg-portfolio-dark/20 backdrop-blur-sm px-12 py-6 rounded-xl border border-white/5 transition-all duration-300 group-hover:border-portfolio-purple/20">
+                {/* Opening Quote */}
+                <div className="absolute -top-6 -left-2 w-16 h-16">
+                  <CurvyQuote className="w-full h-full opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                
+                {/* Quote Text */}
+                <div className="space-y-3 relative">
+                  <p className="text-gray-300 font-light leading-relaxed tracking-wide text-sm md:text-base">
+                    <span className="text-portfolio-purple/90">Neurons</span> in my brain, 
+                    <span className="text-portfolio-blue/90"> neurons</span> in my model... 
+                    Coincidence? I don't believe so.
+                  </p>
+                  <p className="text-gray-400 font-light leading-relaxed tracking-wide text-sm md:text-base">
+                    While you're feeding data to your networks, I'm 
+                    <span className="text-portfolio-purple/90"> training my mind</span> to think in layers.
+                  </p>
+                  <p className="text-gray-300 font-light leading-relaxed tracking-wide text-sm md:text-base">
+                    My neurons don't just flicker — they 
+                    <span className="text-portfolio-blue/90"> fine-tune</span>. 
+                    So when magic happens, it's not just the model learning, 
+                    <span className="italic text-portfolio-purple/90"> it's me evolving too.</span>
+                  </p>
+                </div>
+
+                {/* Closing Quote */}
+                <div className="absolute -bottom-6 -right-2 w-16 h-16">
+                  <CurvyQuote className="w-full h-full opacity-60 group-hover:opacity-100 transition-opacity duration-300" isClosing={true} />
+                </div>
+
+                {/* Animated Gradient Border */}
+                <div className="absolute inset-0 bg-gradient-to-r from-portfolio-purple/0 via-portfolio-purple/10 to-portfolio-blue/0 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="absolute inset-0 bg-gradient-to-r from-portfolio-purple/0 via-portfolio-purple/10 to-portfolio-blue/0 rounded-xl animate-pulse"></div>
+                </div>
+              </div>
+
+              {/* Background Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-portfolio-purple/5 to-portfolio-blue/5 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
             </div>
           </div>
           
