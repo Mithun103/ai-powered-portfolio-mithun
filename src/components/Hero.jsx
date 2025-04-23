@@ -79,8 +79,7 @@ const Hero = () => {
   };
 
   const handleDownloadResume = () => {
-    // Replace with your actual resume URL
-    window.open('src/resume/Mithun_AIFS_Resume.pdf', '_blank');
+    window.open('https://drive.google.com/file/d/1rFmz_ota7Bf4fntQSNDbbIfq-xRBpYWN/view?usp=sharing', '_blank');
   };
 
   return (
