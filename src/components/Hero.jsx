@@ -80,7 +80,7 @@ const Hero = () => {
 
   const handleDownloadResume = () => {
     // Replace with your actual resume URL
-    window.open('/resume.pdf', '_blank');
+    window.open('src/resume/Mithun_AIFS_Resume.pdf', '_blank');
   };
 
   return (
