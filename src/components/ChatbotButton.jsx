@@ -1,6 +1,19 @@
-import React, { useState } from 'react';
-import { MessageSquareText, Sparkles, Mail, Phone } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MessageSquareText, Sparkles } from 'lucide-react';
 import axios from 'axios';
+
+// --- Session ID Management ---
+// Helper function to get an existing session ID or create a new one.
+const getSessionId = () => {
+  let sessionId = localStorage.getItem('chat_session_id');
+  if (!sessionId) {
+    // crypto.randomUUID() is a modern, secure way to generate a unique ID.
+    sessionId = crypto.randomUUID();
+    localStorage.setItem('chat_session_id', sessionId);
+  }
+  return sessionId;
+};
+
 
 const ChatbotButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,19 +22,33 @@ const ChatbotButton = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isPulsing, setIsPulsing] = useState(true);
 
+  // Add an initial greeting message when the chat opens for the first time
+  useEffect(() => {
+      if (isOpen && chat.length === 0) {
+          setChat([{
+              sender: 'bot',
+              text: "Hello! I'm Mithun's AI assistant. Feel free to ask me anything about his skills, projects, or experience."
+          }]);
+      }
+  }, [isOpen, chat.length]);
+
+
   const toggleChatbot = () => {
     setIsOpen(!isOpen);
-    setIsPulsing(false);
-    // Dispatch chatbot state event
-    window.dispatchEvent(new CustomEvent('chatbotState', { 
-      detail: { isOpen: !isOpen } 
+    if (!isOpen) {
+        setIsPulsing(false);
+    }
+    // Dispatch a custom event for other parts of the app to listen to
+    window.dispatchEvent(new CustomEvent('chatbotState', {
+      detail: { isOpen: !isOpen }
     }));
   };
 
+  // Function to format messages with bold text
   const formatMessage = (text) => {
     return text.split(/(\*\*.*?\*\*)/g).map((part, index) => {
       if (part.startsWith('**') && part.endsWith('**')) {
-        return <span key={index} className="font-bold">{part.slice(2, -2)}</span>;
+        return <strong key={index}>{part.slice(2, -2)}</strong>;
       }
       return part;
     });
@@ -29,29 +56,33 @@ const ChatbotButton = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!input.trim()) return;
 
-    // Add user message to chat
-    setChat(prev => [...prev, { sender: 'user', text: input }]);
+    const userMessage = { sender: 'user', text: input };
+    setChat(prev => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
 
     try {
+      // Get the session ID for the current user
+      const sessionId = getSessionId();
+
+      // Send the message and session_id to the backend
       const res = await axios.post('https://portfolio-backend-ai.onrender.com/api/chat', {
         message: input,
+        session_id: sessionId, // <-- The session ID is now included
       });
 
-      // Add bot response to chat
-      setChat(prev => [...prev, { 
-        sender: 'bot', 
-        text: res.data.response || "I'm sorry, I couldn't process that request." 
+      // Add bot response to the chat window
+      setChat(prev => [...prev, {
+        sender: 'bot',
+        text: res.data.response || "I'm sorry, I couldn't process that request."
       }]);
     } catch (err) {
       console.error('Chat error:', err);
-      setChat(prev => [...prev, { 
-        sender: 'bot', 
-        text: "I apologize, but I'm having trouble connecting to the server. Please try again later." 
+      setChat(prev => [...prev, {
+        sender: 'bot',
+        text: "I apologize, but I'm having trouble connecting. Please try again later."
       }]);
     } finally {
       setIsLoading(false);
@@ -61,11 +92,11 @@ const ChatbotButton = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 font-sans">
       {isOpen && (
-        <div className="mb-16 w-80 h-96 bg-portfolio-dark/95 backdrop-blur-lg shadow-2xl rounded-xl p-4 flex flex-col justify-between animate-slide-in-up transition-all duration-500">
+        <div className="mb-4 w-80 h-96 bg-gray-900/90 backdrop-blur-lg shadow-2xl rounded-xl p-4 flex flex-col justify-between animate-slide-in-up transition-all duration-500">
           <div className="flex justify-between items-center mb-2 border-b border-white/10 pb-2">
             <div className="flex items-center gap-2">
-              <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-portfolio-purple to-portfolio-blue">
-                Mithun's Ai
+              <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+                Mithun's AI
               </h3>
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
             </div>
@@ -77,13 +108,13 @@ const ChatbotButton = () => {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto space-y-3 pr-1 mb-3 scrollbar-thin scrollbar-thumb-portfolio-purple/30 scrollbar-track-transparent">
+          <div className="flex-1 overflow-y-auto space-y-3 pr-1 mb-3 scrollbar-thin scrollbar-thumb-purple-400/30 scrollbar-track-transparent">
             {chat.map((msg, index) => (
               <div
                 key={index}
                 className={`px-4 py-2.5 rounded-xl text-sm w-fit break-words whitespace-pre-wrap max-w-[85%] ${
                   msg.sender === 'user'
-                    ? 'ml-auto bg-gradient-to-br from-portfolio-purple to-portfolio-blue text-white rounded-br-none'
+                    ? 'ml-auto bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-br-none'
                     : 'mr-auto bg-white/10 text-gray-300 rounded-bl-none'
                 } transition-all duration-300 animate-fade-in`}
               >
@@ -110,12 +141,12 @@ const ChatbotButton = () => {
               onChange={(e) => setInput(e.target.value)}
               type="text"
               placeholder="Ask me anything..."
-              className="flex-1 px-4 py-2.5 rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-portfolio-purple bg-white/5 text-gray-300 placeholder-gray-500"
+              className="flex-1 px-4 py-2.5 rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white/5 text-gray-300 placeholder-gray-500"
               disabled={isLoading}
             />
             <button
               type="submit"
-              className="bg-gradient-to-br from-portfolio-purple to-portfolio-blue hover:opacity-90 text-white p-2.5 rounded-lg transition-all duration-300 disabled:opacity-50 active:scale-95 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-portfolio-purple"
+              className="bg-gradient-to-br from-purple-600 to-blue-600 hover:opacity-90 text-white p-2.5 rounded-lg transition-all duration-300 disabled:opacity-50 active:scale-95 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500"
               disabled={isLoading || !input.trim()}
             >
               {isLoading ? (
@@ -126,12 +157,12 @@ const ChatbotButton = () => {
                   </svg>
                 </div>
               ) : (
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  className="w-6 h-6 transform rotate-45 transition-transform group-hover:translate-x-1"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  className="w-6 h-6 transform rotate-45"
                 >
                   <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -149,11 +180,10 @@ const ChatbotButton = () => {
       >
         <MessageSquareText size={24} className="z-10 relative" />
         <div className="absolute inset-0 bg-purple-400 rounded-full animate-ping opacity-20" />
-        <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-portfolio-dark animate-pulse"></div>
-        <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md"></div>
-        <Sparkles 
-          className="absolute -top-2 -right-2 text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-spin-slow" 
-          size={16} 
+        <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-gray-900 animate-pulse"></div>
+        <Sparkles
+          className="absolute -top-2 -right-2 text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-spin-slow"
+          size={16}
         />
       </button>
     </div>
