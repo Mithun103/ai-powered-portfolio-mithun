@@ -193,19 +193,15 @@ const Experience = () => {
   const internExperiences = [
     {
       role: "AI/ML Intern",
-      company: "AI and ML InternPe",
-      duration: "2023",
-      description: "Worked on AI and ML projects, implementing deep learning models for real-world applications.",
-      type: "work",
-    },
-    {
-      role: "AIML Intern",
       company: "Winvinaya Infosystem",
-      duration: "2024",
-      description: "Developed machine learning solutions for business analytics and automated data processing systems.",
+      duration: "June 2024 – July 2024",
+      description:
+        'Co-led the development of "Verba Vision Pro" and "Digi Utils" — GenAI-powered tools for intelligent document and spreadsheet processing. Used layout-aware OCR and LLMs to extract and correct scanned text in Verba Vision Pro, and implemented spell-check automation in Excel with Digi Utils, reducing manual proofreading by 80%.',
       type: "work",
     },
   ];
+
+
 
   const hackathonExperiences = [
     {
@@ -246,28 +242,57 @@ const Experience = () => {
   
   ];
 
-  const certificates = [
+    const certificates = [
     {
-      title: "Generative AI Course",
-      issuer: "GUVI",
-      description: "Comprehensive course covering the fundamentals and advanced concepts of Generative AI, including GANs, VAEs, and transformer-based models.",
+      title: "Exploratory Data Analysis for Machine Learning",
+      issuer: "IBM",
+      description:
+        "Learned foundational EDA techniques including data cleaning, manipulation, and visualization using real-world datasets.",
+    },
+    {
+      title: "Supervised Machine Learning: Regression",
+      issuer: "IBM",
+      description:
+        "Covered supervised regression techniques, model evaluation metrics, and real-world applications in predictive modeling.",
+    },
+    {
+      title: "Efficient Large Language Model (LLM) Customization",
+      issuer: "NVIDIA",
+      description:
+        "Hands-on training in optimizing and customizing LLMs using NVIDIA tools, focusing on fine-tuning and deployment techniques.",
+    },
+    {
+      title: "Dynamic Public Speaking Specialization",
+      issuer: "University of Washington",
+      description:
+        "Completed a communication-focused course covering persuasive speaking, storytelling, and audience engagement strategies.",
+    },
+    {
+      title: "Generative AI",
+      issuer: "HCL GUVI",
+      description:
+        "Comprehensive training in Generative AI including Retrieval-Augmented Generation (RAG), Transformer Models, and Attention Mechanisms.",
     },
     {
       title: "Introduction to DeepLearning",
       issuer: "Infosys SpringBoard",
-      description: "In-depth training on neural networks, deep learning architectures, and practical applications in computer vision and natural language processing.",
+      description:
+        "In-depth training on neural networks, deep learning architectures, and practical applications in computer vision and natural language processing.",
     },
     {
       title: "Artificial Intelligence Bootcamp",
       issuer: "NOVITech R&D",
-      description: "Intensive bootcamp focusing on AI fundamentals, machine learning algorithms, and real-world AI applications.",
+      description:
+        "Intensive bootcamp focusing on AI fundamentals, machine learning algorithms, and real-world AI applications.",
     },
     {
       title: "Power BI Workshop",
       issuer: "Tech Tip",
-      description: "Hands-on workshop covering data visualization, dashboard creation, and business intelligence using Power BI.",
-    }
+      description:
+        "Hands-on workshop covering data visualization, dashboard creation, and business intelligence using Power BI.",
+    },
   ];
+
 
   const freelanceSkills = [
     {
