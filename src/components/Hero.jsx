@@ -79,7 +79,7 @@ const Hero = () => {
   };
 
   const handleDownloadResume = () => {
-    window.open('https://drive.google.com/file/d/1rFmz_ota7Bf4fntQSNDbbIfq-xRBpYWN/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1jbNRMHTcKImpn_dlP_0IJk5_lHMUi7sb/view?usp=sharing', '_blank');
   };
 
   return (
