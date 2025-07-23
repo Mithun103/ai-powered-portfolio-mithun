@@ -179,57 +179,65 @@ const ProjectCard = ({ project, index }) => {
 };
 
 const Projects = () => {
-  const projects = [
+    const projects = [
     {
-      title: "Medical Chatbot",
-      description: "AI-powered assistant delivering accurate medical responses using LLM and RAG architecture, with contextual document retrieval and real-time interaction.",
-      technologies: ["LangChain", "Python", "RAG", "Flask", "React"],
-      github: "#",
-      demo: "#",
+      title: "Mediq: The AI Health Team",
+      description: "Under development — A multi-agent AI system powered by LangGraph and intent-based routing, enabling autonomous generation of personalized health plans from diverse medical knowledge bases.",
+      technologies: ["LangGraph", "LangChain", "Python", "RAG", "LLMs"],
+      github: null,
+      demo: null,
       icon: <MessageSquare size={24} className="text-portfolio-purple" />,
     },
     {
-      title: "AI Quiz Generator",
-      description: "Smart quiz creation tool that auto-generates questions using NLP and LLMs, streamlining content generation for educators and learners.",
-      technologies: ["NLP", "Python", "LLM", "JavaScript", "TensorFlow"],
-      github: "#",
-      demo: "#",
+      title: "Quiz Maker AI",
+      description: "Auto-generates and evaluates MCQs from PDFs using LLMs, leveraging generative AI for context-aware question creation and intelligent answer validation.",
+      technologies: ["LLM", "LangChain", "Python", "React", "Flask"],
+      github: "https://github.com/Mithun103/quiz-maker-backend",
+      demo: "https://quizmakerai.netlify.app/",
       icon: <CheckCircle size={24} className="text-portfolio-blue" />,
     },
     {
-      title: "Sales Power BI Dashboard",
-      description: "Dynamic sales dashboard with advanced visuals, enabling interactive analysis and performance tracking using Power BI.",
-      technologies: ["Power BI", "DAX", "SQL", "Data Visualization"],
-      github: "#",
-      demo: "#",
+      title: "Time-Series Temperature Forecasting",
+      description: "Built ensemble-based model with lag/cyclical features for accurate temperature prediction (R²: 0.976, MAE: 1.46) using Random Forest, XGBoost, and LightGBM.",
+      technologies: ["LightGBM", "XGBoost", "Random Forest", "Python", "Pandas"],
+      github: "https://github.com/Mithun103/Advanced-Time-Series-Temperature-Prediction",
+      demo: null,
       icon: <BarChart size={24} className="text-portfolio-purple" />,
     },
     {
-      title: "Temperature Forecasting",
-      description: "Machine learning-based forecasting model combining ensemble techniques for reliable and precise temperature prediction.",
-      technologies: ["LGBM", "Random Forest", "AdaBoost", "Python", "Pandas"],
-      github: "#",
-      demo: "#",
-      icon: <BarChart size={24} className="text-portfolio-blue" />,
+      title: "Transformers from Scratch",
+      description: "Built a 6-layer GPT model from scratch using PyTorch with 10.8M parameters and multi-head attention. Achieved validation loss of 1.56 in 5K steps.",
+      technologies: ["PyTorch", "Transformers", "Autoregressive Decoding"],
+      github: "https://github.com/Mithun103/Transformers-Scratch-Implementation",
+      demo: null,
+      icon: <TerminalSquare size={24} className="text-portfolio-blue" />,
     },
     {
-      title: "Contextual Spell Correction",
-      description: "NLP-powered tool for context-sensitive spell correction, utilizing the LLaMA model to enhance textual accuracy in intelligent systems.",
-      technologies: ["LLaMA", "NLP", "Python", "Transformers"],
-      github: "#",
-      demo: "#",
+      title: "T5 Summarizer with LoRA",
+      description: "Fine-tuned T5 using LoRA for text summarization. Evaluated on 100 samples (ROUGE-1: 0.332, ROUGE-2: 0.141) and optimized for fast inference with Gradio.",
+      technologies: ["LoRA", "T5", "HuggingFace", "Python", "Gradio"],
+      github: "https://github.com/Mithun103/T5-LoRA-text-summarizer",
+      demo: null,
       icon: <TerminalSquare size={24} className="text-portfolio-purple" />,
     },
     {
       title: "Verba Vision Pro",
-      description: "Advanced OCR-powered transcription platform that converts handwritten and printed content into structured digital text using AI vision and language models.",
-      technologies: ["OCR", "Azure Vision", "Python", "LLM", "LangChain"],
-      github: "#",
-      demo: "#",
+      description: "OCR + LLM-powered system that transcribes and corrects handwritten/printed documents using layout-aware vision models for structured output.",
+      technologies: ["OCR", "Azure Vision", "LangChain", "Python", "LLMs"],
+      github: "https://github.com/Mithun103/verba-vision-pro",
+      demo: null,
       icon: <TerminalSquare size={24} className="text-portfolio-blue" />,
     },
+    {
+      title: "Digi Utils",
+      description: "Context-aware spell correction system for Excel spreadsheets, using LLMs to reduce manual effort and enhance accuracy during proofreading.",
+      technologies: ["Python", "Excel", "LLMs"],
+      github: "https://github.com/Mithun103/digi_utils",
+      demo: null,
+      icon: <TerminalSquare size={24} className="text-portfolio-purple" />,
+    },
   ];
-  
+
 
   const sectionRef = useRef(null);
 
